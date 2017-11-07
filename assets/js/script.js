@@ -19,6 +19,7 @@ const lineWidthSpan = document.querySelector("#line-width-val");
 // reference to input elements
 const colorInput = document.querySelector("#color");
 const lineWidthInput = document.querySelector("#line-width");
+const clearBtn = document.querySelector("#clear");
 
 // offsets
 const offsetX = whiteboard.offsetLeft;
@@ -53,6 +54,7 @@ whiteboard.addEventListener("mousemove", (e) => {
 
 whiteboard.addEventListener("mouseup", (e) => {
 	dragging = false;
+	context.save();
 });
 
 whiteboard.addEventListener("mouseover", (e) => {
@@ -73,4 +75,14 @@ lineWidthInput.addEventListener("input", (e) => {
 	context.lineWidth = e.target.value;
 	lineWidthSpan.textContent = e.target.value;
 });
+
+clearBtn.addEventListener("click", (e) => {
+	context.clearRect(0,0,whiteboard.width, whiteboard.height);
+});
+
+// window.addEventListener("resize", (e) => {
+// 	whiteboard.height = window.innerHeight;
+// 	whiteboard.width = window.innerWidth * .8;
+// 	context.restore();
+// });
 
