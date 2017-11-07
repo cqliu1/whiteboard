@@ -14,9 +14,11 @@ const mouseXSpan = document.querySelector("#mouse-x");
 const mouseYSpan = document.querySelector("#mouse-y");
 const offsetXSpan = document.querySelector("#offset-x");
 const offsetYSpan = document.querySelector("#offset-y");
+const lineWidthSpan = document.querySelector("#line-width-val");
 
 // reference to input elements
 const colorInput = document.querySelector("#color");
+const lineWidthInput = document.querySelector("#line-width");
 
 // offsets
 const offsetX = whiteboard.offsetLeft;
@@ -28,6 +30,8 @@ let onCanvas = false;
 
 offsetXSpan.textContent = offsetX;
 offsetYSpan.textContent = offsetY;
+lineWidthInput.value = context.lineWidth;
+lineWidthSpan.textContent = context.lineWidth;
 
 // EVENT LISTENERS
 whiteboard.addEventListener("mousedown", (e) => {
@@ -63,5 +67,10 @@ whiteboard.addEventListener("mouseleave", (e) => {
 
 colorInput.addEventListener("change", (e) => {
 	context.strokeStyle = e.target.value;
+});
+
+lineWidthInput.addEventListener("input", (e) => {
+	context.lineWidth = e.target.value;
+	lineWidthSpan.textContent = e.target.value;
 });
 
