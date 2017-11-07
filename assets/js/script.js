@@ -15,6 +15,9 @@ const mouseYSpan = document.querySelector("#mouse-y");
 const offsetXSpan = document.querySelector("#offset-x");
 const offsetYSpan = document.querySelector("#offset-y");
 
+// reference to input elements
+const colorInput = document.querySelector("#color");
+
 // offsets
 const offsetX = whiteboard.offsetLeft;
 const offsetY = whiteboard.offsetTop;
@@ -57,3 +60,8 @@ whiteboard.addEventListener("mouseover", (e) => {
 whiteboard.addEventListener("mouseleave", (e) => {
 	onCanvas = false;
 });
+
+colorInput.addEventListener("change", (e) => {
+	context.strokeStyle = e.target.value;
+});
+
