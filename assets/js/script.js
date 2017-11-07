@@ -50,6 +50,8 @@ whiteboard.addEventListener("mouseup", (e) => {
 
 whiteboard.addEventListener("mouseover", (e) => {
 	onCanvas = true;
+	context.beginPath();
+	context.moveTo(e.pageX - offsetX, e.pageY - offsetY);
 });
 
 whiteboard.addEventListener("mouseleave", (e) => {
