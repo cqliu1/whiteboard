@@ -9,7 +9,7 @@ html, body {
 
 #sidebar {
 	box-sizing: border-box;
-	float:right;
+	float:left;
 	width: 19.75%;
 	height: 100vh;
 	border: 3px solid #BBBBBB;
