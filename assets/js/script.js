@@ -1,15 +1,8 @@
-// VARS
+// VAR
+
+// reference to HTML elements
 const whiteboard = document.querySelector("#whiteboard");
-const context = whiteboard.getContext("2d");
-
-// default context settings
-whiteboard.height = window.innerHeight;
-whiteboard.width = window.innerWidth * .8;
-context.strokeStyle = "#000000";
-context.lineJoin = "round";
-context.lineWidth = "5";
-
-// reference to span elements
+const sidebar = document.querySelector("#sidebar");
 const mouseXSpan = document.querySelector("#mouse-x");
 const mouseYSpan = document.querySelector("#mouse-y");
 const offsetXSpan = document.querySelector("#offset-x");
@@ -21,13 +14,25 @@ const colorInput = document.querySelector("#color");
 const lineWidthInput = document.querySelector("#line-width");
 const clearBtn = document.querySelector("#clear");
 
+// canvas
+const context = whiteboard.getContext("2d");
+
 // offsets
 const offsetX = whiteboard.offsetLeft;
 const offsetY = whiteboard.offsetTop;
 
 // if holding down mouse
 let dragging = false;
+
+// if mouse is over canvas
 let onCanvas = false;
+
+// default context settings
+whiteboard.height = window.innerHeight;
+whiteboard.width = window.innerWidth - 332;
+context.strokeStyle = "#000000";
+context.lineJoin = "round";
+context.lineWidth = "5";
 
 offsetXSpan.textContent = offsetX;
 offsetYSpan.textContent = offsetY;
